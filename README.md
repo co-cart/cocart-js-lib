@@ -58,7 +58,7 @@ const api = new CoCart({
 | `url`             | `String`  | yes      | Your Store URL, example: https://example.com/                                                                        |
 | `consumerKey`     | `String`  | no       | Your API consumer key or username.                                                                                   |
 | `consumerSecret`  | `String`  | no       | Your API consumer secret or password.                                                                                |
-| `wpAPIPrefix`     | `String`  | no       | Custom WP REST API URL prefix, used to support custom prefixes created with the `rest_url_prefix` filter.            |
+| `wpAPIPrefix`     | `String`  | no       | Custom WP REST API URL prefix, used to support custom prefixes created with the [rest_url_prefix](https://developer.wordpress.org/reference/functions/rest_get_url_prefix/) filter.            |
 | `version`         | `String`  | no       | API version, default is `v1`                                                                                         |
 | `encoding`        | `String`  | no       | Encoding, default is 'utf-8'                                                                                         |
 | `queryStringAuth` | `Bool`    | no       | When `true` and using under HTTPS force Basic Authentication as query string, default is `false`                     |
