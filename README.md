@@ -12,15 +12,18 @@ Requests are made with [Axios library](https://github.com/axios/axios) with [sup
 [![dependency status](https://david-dm.org/cocart/cocart-js-lib.svg)](https://david-dm.org/cocart/cocart-js-lib)
 [![npm version](https://img.shields.io/npm/v/@cocart/cocart-rest-api.svg)](https://www.npmjs.com/package/@cocart/cocart-rest-api)
 
-> ⚠️This is a **WORK IN PROGRESS** and not finished. It will **NOT** support the **LEGACY API**.
+> ⚠️This is a **WORK IN PROGRESS** and not finished. It will **NOT** support the **LEGACY API** of CoCart.
 
 ## Installation
+
+For local install just run.
 
 ```
 npm install
 ```
 
 Will be the following once the npm package is published.
+
 ```
 npm install --save @cocart/cocart-rest-api
 ```
