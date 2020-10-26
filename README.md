@@ -4,7 +4,7 @@
 
 > 🍴 Forked from WooCommerce JavaScript Library and modified to support CoCart REST API instead. Authentication is optional.
 
-JavaScript library for CoCart, supports CommonJS (CJS) and Embedded System Module (ESM).
+JavaScript library for CoCart, supports CommonJS (CJS) and ECMAScript Modules (ESM).
 
 Requests are made with [Axios library](https://github.com/axios/axios) with [support to promises](https://github.com/axios/axios#promises).
 
