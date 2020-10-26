@@ -13,9 +13,9 @@ export declare type CoCartMethod =
 export interface CoCartOptions {
   /* Your Store URL, example: https://example.com/ */
   url: string
-  /* Your API consumer key */
+  /* Your API consumer key or username */
   consumerKey: string
-  /* 	Your API consumer secret */
+  /* 	Your API consumer secret or password */
   consumerSecret: string
   /* Custom WP REST API URL prefix, used to support custom prefixes created with the `rest_url_prefix filter` */
   wpAPIPrefix?: string
