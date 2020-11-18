@@ -56,7 +56,7 @@
     "husky": "3.1.0",
     "jest": "24.9.0",
     "lint-staged": "10.5.1",
-    "nock": "11.9.1",
+    "nock": "13.0.5",
     "prettier": "2.1.2"
   },
   "scripts": {
