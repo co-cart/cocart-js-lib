@@ -96,7 +96,7 @@ const api = new CoCart({
 
 ## Bug Reporting
 
-If you think you have found a bug in the library, please [open a new issue](https://github.com/co-cart/cocart-js-lib/issues/new) and I will do my best to help you out.
+If you think you have found a bug in the library, please [open a new issue](https://github.com/co-cart/cocart-js-lib/issues/new/choose) and I will do my best to help you out.
 
 ## Changelog
 
