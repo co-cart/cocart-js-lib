@@ -1,4 +1,21 @@
-node_modules
+# Editors
+.vscode
+
+# Grunt
+/node_modules/
+npm-debug.log
+
+# OS X metadata
+.DS_Store
+
+# Windows junk
+Thumbs.db
+
+# Various file types to ignore when exporting.
 coverage
 run.*
 index.js
+.gitconfig
+*.zip
+*.json
+*.yml
