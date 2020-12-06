@@ -1,4 +1,5 @@
 language: node_js
+
 node_js:
   - "10"
   - "11"
@@ -6,5 +7,21 @@ node_js:
   - "13"
   - "14"
   - "15"
+
+cache: # cache npm dependencies to avoid wasting time
+  directories:
+    - $HOME/node_modules
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - node_js: 15
+
 before_script: npm run build
+
 script: npm test
+
+# Git clone depth
+# By default Travis CI clones repositories to a depth of 50 commits. Using a depth of 1 makes this step a bit faster.
+git:
+  depth: 1
