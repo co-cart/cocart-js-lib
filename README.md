@@ -8,7 +8,7 @@ JavaScript library for CoCart, supports CommonJS (CJS) and ECMAScript Modules (E
 
 Requests are made with [Axios library](https://github.com/axios/axios) with [support to promises](https://github.com/axios/axios#promises).
 
-[![build status](https://travis-ci.org/co-cart/cocart-js-lib.svg?branch=master)](http://travis-ci.org/cocart/cocart-js-lib)
+[![build status](https://travis-ci.org/co-cart/cocart-js-lib.svg?branch=master)](https://travis-ci.org/github/co-cart/cocart-js-lib)
 [![npm version](https://img.shields.io/npm/v/@cocart/cocart-rest-api.svg)](https://www.npmjs.com/package/@cocart/cocart-rest-api)
 
 > ⚠️This library will **NOT** support the **LEGACY API** of CoCart.
