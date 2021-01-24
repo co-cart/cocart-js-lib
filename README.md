@@ -25,22 +25,22 @@ Check out the CoCart API endpoints and data that can be manipulated in <https://
 
 ## Setup
 
-### ESM example:
+### ESM example
 
 ```js
-import CoCart from "@cocart/cocart-rest-api";
+import CoCartAPI from "@cocart/cocart-rest-api";
 
-const api = new CoCart({
+const CoCart = new CoCartAPI({
   url: "https://example.com",
 });
 ```
 
-### CJS example:
+### CJS example
 
 ```js
-const CoCart = require("@cocart/cocart-rest-api").default;
+const CoCartAPI = require("@cocart/cocart-rest-api").default;
 
-const api = new CoCart({
+const CoCart = new CoCartAPI({
   url: "https://example.com",
 });
 ```
