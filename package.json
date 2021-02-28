@@ -38,10 +38,10 @@
     "url-parse": "^1.4.7"
   },
   "devDependencies": {
-    "@babel/cli": "7.12.17",
-    "@babel/core": "7.12.17",
-    "@babel/plugin-transform-modules-commonjs": "7.12.13",
-    "@babel/preset-env": "7.12.17",
+    "@babel/cli": "7.13.0",
+    "@babel/core": "7.13.8",
+    "@babel/plugin-transform-modules-commonjs": "7.13.8",
+    "@babel/preset-env": "7.13.8",
     "babel-jest": "26.6.3",
     "del-cli": "3.0.1",
     "eslint": "7.21.0",
