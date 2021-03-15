@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Added: Support for API v2. API v1 is still the default version until CoCart v3 is released.
 
-### Dev Dependiencies Updated
+### Dev Dependencies Updated
 
 * Bumped: babel/cli : `7.13.10`
 * Bumped: babel/core : `7.13.10`
