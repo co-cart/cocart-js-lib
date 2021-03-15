@@ -27,7 +27,7 @@ export default class CoCart {
       throw new OptionsException("Store URL is required!");
     }
 
-    this.classVersion = "1.0.0";
+    this.classVersion = "1.0.1";
     this._setDefaultsOptions(opt);
   }
 
@@ -153,14 +153,12 @@ export default class CoCart {
     const data = {
       consumer: {
         key: this.consumerKey,
-        secret: this.consumerSecret
+        secret: this.consumerSecret,
       },
       signature_method: "HMAC-SHA256",
       hash_function: (base, key) => {
-        return createHmac("sha256", key)
-          .update(base)
-          .digest("base64");
-      }
+        return createHmac("sha256", key).update(base).digest("base64");
+      },
     };
 
     return new OAuth(data);
@@ -180,7 +178,7 @@ export default class CoCart {
     const url = this._getUrl(endpoint, params);
 
     const headers = {
-      Accept: "application/json"
+      Accept: "application/json",
     };
     // only set "User-Agent" in node environment
     // the checking method is identical to upstream axios
@@ -197,19 +195,19 @@ export default class CoCart {
       responseEncoding: this.encoding,
       timeout: this.timeout,
       responseType: "json",
-      headers
+      headers,
     };
 
     if (this.isHttps && this.consumerKey && this.consumerSecret) {
       if (this.queryStringAuth) {
         options.params = {
           consumer_key: this.consumerKey,
-          consumer_secret: this.consumerSecret
+          consumer_secret: this.consumerSecret,
         };
       } else {
         options.auth = {
           username: this.consumerKey,
-          password: this.consumerSecret
+          password: this.consumerSecret,
         };
       }
 
@@ -217,7 +215,7 @@ export default class CoCart {
     } else {
       options.params = this._getOAuth().authorize({
         url: url,
-        method: method
+        method: method,
       });
     }
 

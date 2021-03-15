@@ -1,4 +1,4 @@
-<h1 align="center">CoCart - JavaScript Library <a href="https://github.com/co-cart/cocart-js-lib/releases/latest/"><img src="https://img.shields.io/static/v1?goVersion=&message=v1.0.0&label=&color=9a6fc4&style=flat-square"></a></h1>
+<h1 align="center">CoCart - JavaScript Library <a href="https://github.com/co-cart/cocart-js-lib/releases/latest/"><img src="https://img.shields.io/static/v1?goVersion=&message=v1.0.1&label=&color=9a6fc4&style=flat-square"></a></h1>
 
 <p align="center"><img src="https://raw.githubusercontent.com/co-cart/co-cart/master/.github/Logo-1024x534.png.webp" alt="CoCart" /></p>
 
