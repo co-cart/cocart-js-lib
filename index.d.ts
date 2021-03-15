@@ -1,6 +1,7 @@
 import * as OAuth from 'oauth-1.0a'
 
 export declare type CoCartVersion =
+  | 'cocart/v2'
   | 'cocart/v1'
 export declare type CoCartEncoding = 'utf-8' | 'ascii'
 export declare type CoCartMethod =
