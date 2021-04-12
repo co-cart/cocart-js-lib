@@ -101,7 +101,7 @@ If you think you have found a bug in the library, please [open a new issue](http
 
 We have different channels at your disposal where you can find information about the CoCart project, discuss it and get involved:
 
-[![Twitter: cart_co](https://img.shields.io/twitter/follow/cart_co?style=social)](https://twitter.com/cart_co) ![CoCart JS Lib Github Stars](https://img.shields.io/github/stars/co-cart/cocart-js-lib?style=social)
+[![Twitter: cart_co](https://img.shields.io/twitter/follow/cart_co?style=social)](https://twitter.com/cart_co) [![CoCart JS Lib Github Stars](https://img.shields.io/github/stars/co-cart/cocart-js-lib?style=social)](https://github.com/co-cart/cocart-js-lib)
 
 <ul>
   <li>📖 <strong>Docs</strong>: this is the place to learn how to build amazing sites with CoCart. <a href="https://docs.cocart.xyz/#getting-started">Get started!</a></li>
