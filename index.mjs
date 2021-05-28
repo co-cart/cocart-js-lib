@@ -27,7 +27,7 @@ export default class CoCart {
       throw new OptionsException("Store URL is required!");
     }
 
-    this.classVersion = "1.0.1";
+    this.classVersion = "1.1.0";
     this._setDefaultsOptions(opt);
   }
 
@@ -39,13 +39,14 @@ export default class CoCart {
   _setDefaultsOptions(opt) {
     this.url = opt.url;
     this.wpAPIPrefix = opt.wpAPIPrefix || "wp-json";
-    this.version = opt.version || "cocart/v1";
+    this.version = opt.version || "cocart/v2";
     this.isHttps = /^https/i.test(this.url);
     this.consumerKey = opt.consumerKey || "";
     this.consumerSecret = opt.consumerSecret || "";
     this.encoding = opt.encoding || "utf8";
     this.queryStringAuth = opt.queryStringAuth || false;
     this.port = opt.port || "";
+    this.oauth = opt.oauth || false;
     this.timeout = opt.timeout;
     this.axiosConfig = opt.axiosConfig || {};
   }
@@ -198,25 +199,36 @@ export default class CoCart {
       headers,
     };
 
-    if (this.isHttps && this.consumerKey && this.consumerSecret) {
-      if (this.queryStringAuth) {
-        options.params = {
-          consumer_key: this.consumerKey,
-          consumer_secret: this.consumerSecret,
-        };
-      } else {
-        options.auth = {
-          username: this.consumerKey,
-          password: this.consumerSecret,
-        };
+    // If authrorizing set parameters/authentication options.
+    if (this.consumerKey && this.consumerSecret) {
+
+      // Secure request?
+      if (this.isHttps) {
+
+        // Authorize as query sting?
+        if (this.queryStringAuth) {
+          options.params = {
+            consumer_key: this.consumerKey,
+            consumer_secret: this.consumerSecret,
+          };
+        } else {
+          options.auth = {
+            username: this.consumerKey,
+            password: this.consumerSecret,
+          };
+        }
+
+        options.params = { ...options.params, ...params };
       }
 
-      options.params = { ...options.params, ...params };
-    } else {
-      options.params = this._getOAuth().authorize({
-        url: url,
-        method: method,
-      });
+      // Authorize via OAuth?
+      if ( this.oauth ) {
+        options.params = this._getOAuth().authorize({
+          url: url,
+          method: method,
+        });
+      }
+
     }
 
     if (data) {

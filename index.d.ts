@@ -20,7 +20,7 @@ export interface CoCartOptions {
   consumerSecret: string
   /* Custom WP REST API URL prefix, used to support custom prefixes created with the `rest_url_prefix filter` */
   wpAPIPrefix?: string
-  /* API version, default is `v1` */
+  /* API version, default is `cocart/v2` */
   version?: CoCartVersion
   /* Encoding, default is 'utf-8' */
   encoding?: CoCartEncoding
@@ -28,6 +28,8 @@ export interface CoCartOptions {
   queryStringAuth?: boolean
   /* Provide support for URLs with ports, eg: `8080` */
   port?: number
+  /* Authenticate with Oauth 1.0a */
+  oauth?: boolean,
   /* Define the request timeout */
   timeout?: number
   /* Define the custom Axios config, also override this library options */
@@ -39,7 +41,7 @@ export interface CoCartQuery {
 }
 
 /**
- * WooCommerce REST API wrapper
+ * CoCart REST API wrapper
  *
  * @param {Object} opt
  */
@@ -53,6 +55,7 @@ export default class CoCart {
   protected encoding: CoCartEncoding
   protected queryStringAuth: boolean
   protected port: number
+  protected oauth: boolean
   protected timeout: number
   protected axiosConfig: any
 

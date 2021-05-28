@@ -50,13 +50,14 @@ const CoCart = new CoCartAPI({
 | Option            | Type      | Required | Description                                                                                                                                                                         |
 |-------------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `url`             | `String`  | yes      | Your Store URL, example: https://example.com/                                                                                                                                       |
-| `consumerKey`     | `String`  | no       | Your API consumer key or username.                                                                                                                                                  |
+| `consumerKey`     | `String`  | no       | Your API consumer key, username or email address.                                                                                                                                   |
 | `consumerSecret`  | `String`  | no       | Your API consumer secret or password.                                                                                                                                               |
 | `wpAPIPrefix`     | `String`  | no       | Custom WP REST API URL prefix, used to support custom prefixes created with the [rest_url_prefix](https://developer.wordpress.org/reference/functions/rest_get_url_prefix/) filter. |
-| `version`         | `String`  | no       | API version, default is `v1`                                                                                                                                                        |
+| `version`         | `String`  | no       | API version, default is `cocart/v2`                                                                                                                                                 |
 | `encoding`        | `String`  | no       | Encoding, default is 'utf-8'                                                                                                                                                        |
 | `queryStringAuth` | `Bool`    | no       | When `true` and using under HTTPS force Basic Authentication as query string, default is `false`                                                                                    |
 | `port`            | `string`  | no       | Provide support for URLs with ports, eg: `8080`                                                                                                                                     |
+| `oauth`           | `Bool`    | no       | When `true` authorize via OAuth 1.0a, default is `false`                                                                                                                            |
 | `timeout`         | `Integer` | no       | Define the request timeout                                                                                                                                                          |
 | `axiosConfig`     | `Object`  | no       | Define the custom [Axios config](https://github.com/axios/axios#request-config), also override this library options.                                                                |
 
@@ -67,19 +68,30 @@ const CoCart = new CoCartAPI({
 - `.get(endpoint)`
 - `.get(endpoint, params)`
 
-| Params     | Type     | Description                                               |
-|------------|----------|-----------------------------------------------------------|
-| `endpoint` | `String` | CoCart API endpoint, example: `get-cart` or `products/32` |
-| `params`   | `Object` | Query strings params, example: `{ per_page: 20 }`         |
+| Params     | Type     | Description                                           |
+|------------|----------|------------------------------------------------------ |
+| `endpoint` | `String` | CoCart API endpoint, example: `cart` or `products/32` |
+| `params`   | `Object` | Query strings params, example: `{ per_page: 20 }`     |
 
 ### POST
 
 - `.post(endpoint, data)`
 - `.post(endpoint, data, params)`
 
+| Params     | Type     | Description                                                  |
+|------------|----------|------------------------------------------------------------- |
+| `endpoint` | `String` | CoCart API endpoint, example: `cart/add-item` or `cart/item` |
+| `data`     | `Object` | JS object to be converted into JSON and sent in the request  |
+| `params`   | `Object` | Query strings params                                         |
+
+### PUT
+
+- `.put(endpoint, data)`
+- `.putt(endpoint, data, params)`
+
 | Params     | Type     | Description                                                 |
 |------------|----------|-------------------------------------------------------------|
-| `endpoint` | `String` | CoCart API endpoint, example: `add-item` or `item`          |
+| `endpoint` | `String` | CoCart API endpoint, example: `cart/item/<item_key>`        |
 | `data`     | `Object` | JS object to be converted into JSON and sent in the request |
 | `params`   | `Object` | Query strings params                                        |
 
@@ -88,10 +100,10 @@ const CoCart = new CoCartAPI({
 - `.delete(endpoint)`
 - `.delete(endpoint, params)`
 
-| Params     | Type     | Description                                      |
-|------------|----------|--------------------------------------------------|
-| `endpoint` | `String` | CoCart API endpoint, example: `item` or `coupon` |
-| `params`   | `Object` | Query strings params, example: `{ force: true }` |
+| Params     | Type     | Description                                           |
+|------------|----------|------------------------------------------------------ |
+| `endpoint` | `String` | CoCart API endpoint, example: `cart/item` or `coupon` |
+| `params`   | `Object` | Query strings params, example: `{ force: true }`      |
 
 ## Bug Reporting
 
