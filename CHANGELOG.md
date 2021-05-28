@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dev Dependencies Updated
 
-* Bumped: babel/cli : `7.14.3"`
+* Bumped: babel/cli : `7.14.3`
 * Bumped: babel/core : `7.14.3`
 * Bumped: babel/plugin-transform-modules-commonjs : `7.14.0`
 * Bumped: babel/preset-env : `7.14.2`
