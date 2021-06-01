@@ -199,11 +199,11 @@ export default class CoCart {
       headers,
     };
 
-    // If authrorizing set parameters/authentication options.
-    if (this.consumerKey && this.consumerSecret) {
+    // Secure request?
+    if (this.isHttps) {
 
-      // Secure request?
-      if (this.isHttps) {
+      // If authrorizing set parameters/authentication options.
+      if (this.consumerKey && this.consumerSecret) {
 
         // Authorize as query sting?
         if (this.queryStringAuth) {
