@@ -8,11 +8,11 @@ describe("#options", () => {
     const api = new CoCart({
       url: "https://test.dev",
       wpAPIPrefix: "wp-rest",
-      version: "cocart/v1"
+      version: "cocart/v2"
     });
 
     const endpoint = "products";
-    const expected = "https://test.dev/wp-rest/cocart/v1/" + endpoint;
+    const expected = "https://test.dev/wp-rest/cocart/v2/" + endpoint;
     const url = api._getUrl(endpoint);
 
     expect(url).toBe(expected);
@@ -22,12 +22,12 @@ describe("#options", () => {
 describe("#methods", () => {
   const api = new CoCart({
     url: "https://test.dev",
-    version: "cocart/v1"
+    version: "cocart/v2"
   });
 
   test("_getUrl should return full endpoint URL", () => {
     const endpoint = "products";
-    const expected = "https://test.dev/wp-json/cocart/v1/" + endpoint;
+    const expected = "https://test.dev/wp-json/cocart/v2/" + endpoint;
     const url = api._getUrl(endpoint);
 
     expect(url).toBe(expected);
@@ -35,9 +35,9 @@ describe("#methods", () => {
 
   test("_normalizeQueryString should return query string sorted by name", () => {
     const url =
-      "http://test.dev/wp-json/cocart/v1/products?filter[q]=Woo+Album&fields=id&filter[limit]=1";
+      "https://test.dev/wp-json/cocart/v2/products?filter[q]=Woo+Album&fields=id&filter[limit]=1";
     const expected =
-      "http://test.dev/wp-json/cocart/v1/products?fields=id&filter[limit]=1&filter[q]=Woo%20Album";
+      "https://test.dev/wp-json/cocart/v2/products?fields=id&filter[limit]=1&filter[q]=Woo%20Album";
     const normalized = api._normalizeQueryString(url);
 
     expect(normalized).toBe(expected);
@@ -53,39 +53,41 @@ describe("#requests", () => {
     url: "https://test.dev",
     consumerKey: "ck_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    version: "cocart/v1"
+    version: "cocart/v2"
   });
 
   test("should return content for basic auth", () => {
     expect.assertions(1);
 
-    nock("https://test.dev/wp-json/cocart/v1")
-      .post("/get-cart", {})
+    nock("https://test.dev/wp-json/cocart/v2")
+      .post("/cart/add-item", {})
       .reply(201, {
         ok: true
       });
 
-    return api.post("get-cart", {}).then(response => {
+    return api.post("cart/add-item", {}).then(response => {
       expect(response.status).toBe(201);
     });
   });
 
   test("should return content for get requests", () => {
     expect.assertions(1);
-    nock("https://test.dev/wp-json/cocart/v1")
-      .get("/get-cart")
+
+    nock("https://test.dev/wp-json/cocart/v2")
+      .get("/cart")
       .reply(200, {
         ok: true
       });
 
-    return api.get("get-cart", {}).then(response => {
+    return api.get("cart", {}).then(response => {
       expect(response.status).toBe(200);
     });
   });
 
   test("should return content for put requests", () => {
     expect.assertions(1);
-    nock("https://test.dev/wp-json/cocart/v1")
+
+    nock("https://test.dev/wp-json/cocart/v2")
       .put("/orders")
       .reply(200, {
         ok: true
@@ -98,27 +100,30 @@ describe("#requests", () => {
 
   test("should return content for delete requests", () => {
     expect.assertions(1);
-    nock("https://test.dev/wp-json/cocart/v1")
-      .delete("/item")
+
+    nock("https://test.dev/wp-json/cocart/v2")
+      .delete("/cart/item/f28cd9f0560070670a861d86462b8f14")
       .reply(200, {
         ok: true
       });
 
-    return api.delete("item", {}).then(response => {
+    return api.delete("cart/item/f28cd9f0560070670a861d86462b8f14", {}).then(response => {
       expect(response.status).toBe(200);
     });
   });
 
   test("should return content for OAuth", () => {
     expect.assertions(1);
+
     const oAuth = new CoCart({
-      url: "http://test.dev",
+      url: "https://test.dev",
       consumerKey: "ck_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
       consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      version: "cocart/v1"
+      version: "cocart/v2",
+      oauth: true,
     });
 
-    nock("http://test.dev/wp-json/cocart/v1")
+    nock("https://test.dev/wp-json/cocart/v2")
       .filteringPath(/\?.*/, "?params")
       .get("/my-orders?params")
       .reply(200, {
