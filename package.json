@@ -57,7 +57,7 @@
     "jest": "27.3.1",
     "lint-staged": "11.2.6",
     "nock": "13.2.1",
-    "prettier": "2.4.1"
+    "prettier": "2.6.2"
   },
   "scripts": {
     "build": "del index.js && babel index.mjs --out-dir .",
