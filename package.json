@@ -42,7 +42,7 @@
     "@babel/core": "7.17.9",
     "@babel/plugin-transform-modules-commonjs": "7.17.9",
     "@babel/preset-env": "7.16.11",
-    "babel-jest": "27.5.1",
+    "babel-jest": "29.5.0",
     "del-cli": "4.0.1",
     "eslint": "8.14.0",
     "eslint-config-prettier": "8.3.0",
@@ -54,7 +54,7 @@
     "eslint-plugin-promise": "5.2.0",
     "eslint-plugin-standard": "5.0.0",
     "husky": "7.0.4",
-    "jest": "27.5.1",
+    "jest": "29.5.0",
     "lint-staged": "11.2.6",
     "nock": "13.2.4",
     "prettier": "2.6.2"
